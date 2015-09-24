@@ -1,0 +1,27 @@
+@keyframes utkaFly {
+	0%{
+		left: 150%;
+		top:10%;
+	}
+	25%{
+		left: 80%;
+		top:50%;
+	}
+	50%{
+		left: 50%;
+		top:30%;
+	}
+	75%{
+		left: 30%;
+		top:40%;
+	}
+	100%{
+		left: -50%;
+		top:10%;
+	}
+}
+@keyframes utkaDie {
+	0%{
+		left: -50%;
+	}
+}
