@@ -1,0 +1,34 @@
+//urls
+$url_0: url(../img/duck_light.png);
+
+input {
+	+ label {
+		position: absolute;
+		left: -100px;
+		z-index: 1;
+		width: 36px;
+		height: 34px;
+		display: block;
+		z-index: 5;
+		transform: translate(-50%,-50%);
+		background: $url_0 no-repeat left center;
+		background-position: -138px 0;
+	}
+	&:checked + label {
+		opacity: 0;
+		transition: all 0.5s;
+		transform: rotate(120deg);
+		transform-origin: 50%;
+		z-index: -5;
+		animation: utkaDie 1s linear infinite;
+	}
+}
+
+.duck {
+	@for $i from 1 through 5 {
+		&:nth-of-type(#{$i}) {
+			animation: utkaFly $i * 10s linear $i * 1s infinite;
+			animation-direction: alternate;
+		}
+	}
+}

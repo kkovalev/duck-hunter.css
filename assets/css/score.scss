@@ -1,0 +1,28 @@
+//colors
+$color_alto_approx: #dadada;
+
+.score {
+	position: absolute;
+	bottom: 0;
+	height: 50px;
+	line-height: 50px;
+	font-size: 30px;
+	text-align: center;
+	width: 100%;
+	z-index: 2;
+	background-color: $color_alto_approx;
+
+	&:after {
+		content: counter(score);
+		display: inline-block;
+	}
+
+	&:before {
+		content: 'Очки: ';
+		display: inline-block;
+		margin-right: 10px;
+	}
+}
+input:checked {
+	counter-increment: score;
+}
