@@ -1,0 +1,121 @@
+@charset "UTF-8";
+@keyframes utkaFly {
+  0% {
+    left: 150%;
+    top: 10%;
+  }
+  25% {
+    left: 80%;
+    top: 50%;
+  }
+  50% {
+    left: 50%;
+    top: 30%;
+  }
+  75% {
+    left: 30%;
+    top: 40%;
+  }
+  100% {
+    left: -50%;
+    top: 10%;
+  }
+}
+
+@keyframes utkaDie {
+  0% {
+    left: -50%;
+    top: 100%;
+  }
+}
+
+input + label {
+  position: absolute;
+  left: -100px;
+  z-index: 1;
+  width: 36px;
+  height: 34px;
+  display: block;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  background: url(../img/duck_light.png) no-repeat left center;
+  background-position: -138px 0;
+}
+
+input:checked + label {
+  opacity: 0;
+  transition: all 0.5s;
+  transform: rotate(120deg);
+  transform-origin: 50%;
+  z-index: -5;
+  animation: utkaDie 1s linear infinite;
+}
+
+.duck:nth-of-type(1) {
+  animation: utkaFly 10s linear 1s infinite;
+  animation-direction: alternate;
+}
+
+.duck:nth-of-type(2) {
+  animation: utkaFly 20s linear 2s infinite;
+  animation-direction: alternate;
+}
+
+.duck:nth-of-type(3) {
+  animation: utkaFly 30s linear 3s infinite;
+  animation-direction: alternate;
+}
+
+.duck:nth-of-type(4) {
+  animation: utkaFly 40s linear 4s infinite;
+  animation-direction: alternate;
+}
+
+.duck:nth-of-type(5) {
+  animation: utkaFly 50s linear 5s infinite;
+  animation-direction: alternate;
+}
+
+.score {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
+  background-color: #dadada;
+}
+
+.score:after {
+  content: counter(score);
+  display: inline-block;
+}
+
+.score:before {
+  content: 'Очки: ';
+  display: inline-block;
+  margin-right: 10px;
+}
+
+input:checked {
+  counter-increment: score;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  cursor: url(../img/aim.png), text;
+  overflow: hidden;
+}
+
+body:before {
+  content: '';
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: url(../img/bg.png) repeat-x bottom left;
+}
