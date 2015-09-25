@@ -7,12 +7,26 @@ var autoprefixer = require('gulp-autoprefixer');
 var concatCss = require('gulp-concat-css');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
+var sass = require('gulp-sass');
 
 // Основные
 gulp.task('css', function () {
-  gulp.src('./assets/css/*.css')
-    .pipe(concatCss("style.min.css"))
-    .pipe(minifyCss({compatibility: 'ie8'}))
+  // gulp.src('./assets/css/*.css')
+  //   .pipe(concatCss("style.min.css"))
+  //   .pipe(minifyCss({compatibility: 'ie8'}))
+  //   .pipe(autoprefixer({
+  //           browsers: ['last 10 versions'],
+  //           cascade: false
+  //       }))
+  //   .pipe(gulp.dest('./public/css/'))
+  //   .pipe(connect.reload());
+});
+
+
+gulp.task('sass', function () {
+  gulp.src('./assets/css/*.scss')
+    .pipe(sass(''))
+    .pipe(minifyCss(''))
     .pipe(autoprefixer({
             browsers: ['last 10 versions'],
             cascade: false
@@ -20,6 +34,7 @@ gulp.task('css', function () {
     .pipe(gulp.dest('./public/css/'))
     .pipe(connect.reload());
 });
+
 
 
 gulp.task('html',function(){
@@ -74,4 +89,4 @@ gulp.task('img',function(){
 });
 
 // Default
-gulp.task('default', ["html", "css", "js", "connect", "fonts", "watch"]);
+gulp.task('default', ["html", "css", "sass", "js", "connect", "fonts", "watch"]);
